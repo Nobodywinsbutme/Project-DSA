@@ -3,27 +3,26 @@ package com.maze;
 public class Player {
     private int row;
     private int col;
-    // Điểm số (tùy chọn cho game)
     private int score = 0;
 
-    // Khởi tạo nhân vật tại vị trí bắt đầu (thường là 0,0)
+    // create player at starting position
     public Player(int startRow, int startCol) {
         this.row = startRow;
         this.col = startCol;
     }
 
-    // --- CÁC HÀM DI CHUYỂN (Logic kiểm tra tường) ---
+    // --- Move function(Logic check wall) ---
     
-    // Muốn đi lên -> Phải kiểm tra xem ô hiện tại có tường bên TRÊN (Index 0) không?
+    // Wanna move up -> Check top wall (Index 0)
     public void moveUp(Cell[][] grid) {
-        // Kiểm tra: Nếu không có tường bên trên (walls[0] == false) thì mới cho đi
+        // check: if no top wall then can move up
         if (!grid[row][col].walls[0]) {
             row--;
-            score++; // Ví dụ: mỗi bước đi được cộng điểm
+            score++; // plus score on successful move
         }
     }
 
-    // Muốn đi phải -> Kiểm tra tường bên PHẢI (Index 1)
+    // Wanna move right -> Check right wall (Index 1)
     public void moveRight(Cell[][] grid) {
         if (!grid[row][col].walls[1]) {
             col++;
@@ -31,7 +30,7 @@ public class Player {
         }
     }
 
-    // Muốn đi xuống -> Kiểm tra tường bên DƯỚI (Index 2)
+    // Wanna move down -> Check bottom wall (Index 2)
     public void moveDown(Cell[][] grid) {
         if (!grid[row][col].walls[2]) {
             row++;
@@ -39,7 +38,7 @@ public class Player {
         }
     }
 
-    // Muốn đi trái -> Kiểm tra tường bên TRÁI (Index 3)
+    // Wanna move left -> Check left wall (Index 3)
     public void moveLeft(Cell[][] grid) {
         if (!grid[row][col].walls[3]) {
             col--;
@@ -47,7 +46,7 @@ public class Player {
         }
     }
 
-    // Getters để lấy vị trí hiện tại (cho phần Vẽ UI)
+    // Get current position and score
     public int getRow() { return row; }
     public int getCol() { return col; }
     public int getScore() { return score; }
