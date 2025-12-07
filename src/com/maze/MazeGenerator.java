@@ -2,7 +2,6 @@ package com.maze;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Stack;
 
 public class MazeGenerator {
     private int rows, cols;
@@ -28,7 +27,7 @@ public class MazeGenerator {
      * Generates the maze using the Recursive Backtracker algorithm.
      */
     public void generateMaze() {
-        Stack<Cell> stack = new Stack<>();
+        MyStack stack = new MyStack();
         Cell current = grid[0][0]; // Start from top-left
         current.visited = true;
         stack.push(current);
