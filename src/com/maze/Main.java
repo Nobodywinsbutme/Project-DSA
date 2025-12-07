@@ -33,5 +33,22 @@ public class Main {
         }
         
         System.out.println("Player now at: " + game.getPlayer().getRow() + ", " + game.getPlayer().getCol());
+
+        System.out.println("Player at: " + game.getPlayer().getRow() + "," + game.getPlayer().getCol());
+    
+        System.out.println("--- ASKING FOR HINT ---");
+        Cell hint = game.getHint();
+        if (hint != null) {
+            System.out.println("Hint says: Go to " + hint.row + "," + hint.col);
+            
+            // Thử kiểm tra xem nó bảo đi hướng nào
+            if (hint.row < game.getPlayer().getRow()) System.out.println("-> Suggestion: GO UP");
+            if (hint.row > game.getPlayer().getRow()) System.out.println("-> Suggestion: GO DOWN");
+            if (hint.col > game.getPlayer().getCol()) System.out.println("-> Suggestion: GO RIGHT");
+            if (hint.col < game.getPlayer().getCol()) System.out.println("-> Suggestion: GO LEFT");
+        } else {
+            System.out.println("No path found!");
+        }
+
     }
 }

@@ -4,6 +4,7 @@ public class MyStack {
     private int size;
     public MyStack() { this.top = null; this.size = 0; }
 
+    // add an item to the top of the stack
     public void push(Cell cell) {
         Node newNode = new Node(cell);
         if (top == null) top = newNode;
@@ -11,6 +12,7 @@ public class MyStack {
         size++;
     }
 
+    // remove and return the top item from the stack
     public Cell pop() {
         if (isEmpty()) return null;
         Cell data = top.data;
