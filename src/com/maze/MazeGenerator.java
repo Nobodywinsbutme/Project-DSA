@@ -7,6 +7,8 @@ import java.util.Stack;
 public class MazeGenerator {
     private int rows, cols;
     private Cell[][] grid;
+    private Cell startCell;
+    private Cell endCell;
     private Random random = new Random();
 
     public MazeGenerator(int rows, int cols) {
@@ -52,6 +54,12 @@ public class MazeGenerator {
         
         // Reset visited status so the Solver can use it later
         resetVisited();
+        // Define start and end cells
+        startCell = grid[0][0];
+        endCell = grid[rows - 1][cols - 1];
+        // Open entrance and exit
+        endCell.walls[1] = false;
+
     }
 
     private ArrayList<Cell> getUnvisitedNeighbors(Cell c) {
@@ -119,4 +127,7 @@ public class MazeGenerator {
     public Cell[][] getGrid() {
         return grid;
     }
+
+    public Cell getStartCell() { return startCell; }
+    public Cell getEndCell() { return endCell; }
 }
