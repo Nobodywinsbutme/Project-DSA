@@ -1,5 +1,8 @@
 package com.maze;
 
+import com.maze.entities.Cell;
+import com.maze.logic.GameModel;
+
 public class Main {
     public static void main(String[] args) throws Exception {
     // Khởi tạo Game Model

@@ -1,4 +1,4 @@
-package com.maze;
+package com.maze.entities;
 
 public class Cell {
     public int row, col;

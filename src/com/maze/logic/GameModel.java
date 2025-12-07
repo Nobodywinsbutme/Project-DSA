@@ -1,4 +1,8 @@
-package com.maze;
+package com.maze.logic;
+
+import com.maze.ds.MyQueue;
+import com.maze.entities.Cell;
+import com.maze.entities.Player;
 
 public class GameModel {
     private MazeGenerator mazeGen;

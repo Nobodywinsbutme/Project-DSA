@@ -1,4 +1,4 @@
-package com.maze;
+package com.maze.entities;
 
 public class Player {
     private int row;

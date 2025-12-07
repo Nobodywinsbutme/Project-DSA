@@ -1,4 +1,7 @@
-package com.maze;
+package com.maze.ds;
+
+import com.maze.entities.Cell;
+
 public class MyStack {
     private Node top;
     private int size;

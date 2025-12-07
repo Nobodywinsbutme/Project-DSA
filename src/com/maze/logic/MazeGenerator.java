@@ -1,7 +1,10 @@
-package com.maze;
+package com.maze.logic;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import com.maze.ds.MyStack;
+import com.maze.entities.Cell;
 
 public class MazeGenerator {
     private int rows, cols;
