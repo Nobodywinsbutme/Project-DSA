@@ -28,6 +28,7 @@ A Java-based application developed for the **Data Structures and Algorithms** co
 2. **Controls:**
    - **Arrow Keys (↑ ↓ ← →):** Move the character (Red Dot).
    - **H Key:** Get a Hint (Shows the direction to the exit).
+   - **A Key:** Start auto-solve — the game will automatically move the player along the shortest path to the exit (calculated with BFS). Press A again to stop auto-solve.
 3. **Objective:** Navigate from the starting point (Top-Left) to the exit (Bottom-Right).
 
 ---

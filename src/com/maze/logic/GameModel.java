@@ -96,6 +96,48 @@ public class GameModel {
         return null; // No path found
     }
 
+    // Return full shortest path from player current position to exit (BFS)
+    // The returned list contains cells starting from the cell next to the player
+    // and ending with the exit cell. Returns null if no path found.
+    public java.util.List<Cell> getPathToExit() {
+        Cell start = grid[player.getRow()][player.getCol()];
+        Cell end = mazeGen.getEndCell();
+
+        MyQueue queue = new MyQueue();
+        boolean[][] visited = new boolean[grid.length][grid[0].length];
+        Cell[][] parent = new Cell[grid.length][grid[0].length];
+
+        queue.enqueue(start);
+        visited[start.row][start.col] = true;
+
+        boolean found = false;
+        while (!queue.isEmpty()) {
+            Cell current = queue.dequeue();
+            if (current == end) {
+                found = true;
+                break;
+            }
+
+            addNeighborIfValid(current, -1, 0, visited, parent, queue);
+            addNeighborIfValid(current, 1, 0, visited, parent, queue);
+            addNeighborIfValid(current, 0, -1, visited, parent, queue);
+            addNeighborIfValid(current, 0, 1, visited, parent, queue);
+        }
+
+        if (found) {
+            java.util.List<Cell> path = new java.util.ArrayList<>();
+            Cell curr = end;
+            // Reconstruct path back to start (but we want from next cell after start)
+            while (curr != null && curr != start) {
+                path.add(0, curr);
+                curr = parent[curr.row][curr.col];
+            }
+            return path;
+        }
+
+        return null;
+    }
+
     // function to add neighbor if valid (helper for BFS)
     private void addNeighborIfValid(Cell current, int dRow, int dCol, boolean[][] visited, Cell[][] parent, MyQueue queue) {
         int r = current.row + dRow;
