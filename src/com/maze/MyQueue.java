@@ -35,4 +35,7 @@ public class MyQueue {
     }
 
     public boolean isEmpty() { return front == null; }
+    public int getSize() {
+        return size;
+    }
 }
