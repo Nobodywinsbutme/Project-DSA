@@ -58,7 +58,7 @@ public class GameModel {
         Cell start = grid[player.getRow()][player.getCol()];
         Cell end = mazeGen.getEndCell();
 
-        // 1. Khởi tạo cấu trúc dữ liệu cho BFS
+        // 1. Create BFS structures
         MyQueue queue = new MyQueue();
         boolean[][] visited = new boolean[grid.length][grid[0].length];
         Cell[][] parent = new Cell[grid.length][grid[0].length]; // find path
@@ -93,7 +93,7 @@ public class GameModel {
             return curr; 
         }
         
-        return null; // No path found
+        return null; // No path found (should not happen in a valid maze)
     }
 
     // Return full shortest path from player current position to exit (BFS)
@@ -152,10 +152,10 @@ public class GameModel {
         // Check 3: no wall between current and neighbor
         // Logic wall: 0-TOP, 1-RIGHT, 2-BOTTOM, 3-LEFT
         boolean hasWall = false;
-        if (dRow == -1) hasWall = current.walls[0]; // Đi lên check tường trên
-        if (dRow == 1)  hasWall = current.walls[2]; // Đi xuống check tường dưới
-        if (dCol == 1)  hasWall = current.walls[1]; // Đi phải check tường phải
-        if (dCol == -1) hasWall = current.walls[3]; // Đi trái check tường trái
+        if (dRow == -1) hasWall = current.walls[0]; 
+        if (dRow == 1)  hasWall = current.walls[2]; 
+        if (dCol == 1)  hasWall = current.walls[1]; 
+        if (dCol == -1) hasWall = current.walls[3]; 
         
         if (!hasWall) {
             visited[r][c] = true;

@@ -19,7 +19,7 @@ public class Main {
     }
 
     private static void createAndShowGUI() {
-        System.out.println("Dang khoi tao cua so Game..."); // Log để biết game đang chạy
+        System.out.println("Creating game"); // Log để biết game đang chạy
 
         // 1. Tạo khung cửa sổ chính
         JFrame frame = new JFrame("Maze Game - DSA Project");
